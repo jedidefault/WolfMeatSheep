@@ -53,8 +53,13 @@ resource "aws_instance" "web_server" {
 
   ### Install LetsEncrypt
   provisioner "remote-exec" {
-    inline = [
+    inline = [,
+      "sudo apt-get update",
+      "sudo apt-get install software-properties-common",
+      "sudo add-apt-repository universe",
       "sudo add-apt-repository ppa:certbot/certbot",
+      "sudo apt-get update",
+      "sudo apt-get install certbot python-certbot-apache",
       "sudo nano /etc/apache2/sites-available/wolfmeatsheep.conf"
     ]
   }
