@@ -23,3 +23,4 @@ resource "aws_security_group" "web_server" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
